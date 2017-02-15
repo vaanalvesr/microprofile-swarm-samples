@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 public class Person implements Serializable {
@@ -58,7 +59,7 @@ public class Person implements Serializable {
 
 	public void setWeightDesired(BigDecimal weightDesired) { this.weightDesired = weightDesired; }
 
-	public List<WeightHistory> getWeightHistoryList() { return weightHistoryList; }
+	public Optional<List<WeightHistory>> getWeightHistoryList() { return Optional.ofNullable(weightHistoryList); }
 
 	@Override
 	public boolean equals(Object obj) {
