@@ -11,12 +11,12 @@ public class WeightHistory implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", updatable = false, nullable = false)
+	@Column(updatable = false, nullable = false)
 	private Long id;
 	@Version
-	@Column(name = "version")
-	private int version;
-	@Column(name = "weight", nullable = false)
+	@Column
+	private Integer version;
+	@Column(nullable = false)
 	private BigDecimal weight;
 	@ManyToOne
 	private Person person;
