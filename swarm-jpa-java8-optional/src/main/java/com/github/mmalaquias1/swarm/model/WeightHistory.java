@@ -3,6 +3,7 @@ package com.github.mmalaquias1.swarm.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Optional;
 
 @Entity
 public class WeightHistory implements Serializable {
@@ -36,14 +37,18 @@ public class WeightHistory implements Serializable {
 		return this.version;
 	}
 
-	public BigDecimal getWeight() { return weight; 	}
+	public BigDecimal getWeight() { return weight; }
+
+	public Optional<Person> getPerson() { return Optional.ofNullable(person); }
 
 	@Override
 	public String toString() {
-		String result = getClass().getSimpleName() + " ";
-		if (id != null)
-			result += "id: " + id;
-		return result;
+		return "WeightHistory{" +
+				"id=" + id +
+				", version=" + version +
+				", weight=" + weight +
+				", person=" + person +
+				'}';
 	}
 
 	@Override
