@@ -31,13 +31,9 @@ public class Person implements Serializable {
 	@OneToMany(mappedBy = "person")
 	private List<WeightHistory> weightHistoryList;
 
-	public Long getId() {
-		return this.id;
-	}
+	public Long getId() { return this.id; }
 
-	public int getVersion() {
-		return this.version;
-	}
+	public Integer getVersion() { return this.version; }
 
 	public String getName() { return name; }
 
