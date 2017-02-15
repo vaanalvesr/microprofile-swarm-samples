@@ -29,13 +29,9 @@ public class WeightHistory implements Serializable {
 		this.person = person;
 	}
 
-	public Long getId() {
-		return this.id;
-	}
+	public Long getId() { return this.id; }
 
-	public int getVersion() {
-		return this.version;
-	}
+	public Integer getVersion() { return this.version; }
 
 	public BigDecimal getWeight() { return weight; }
 
