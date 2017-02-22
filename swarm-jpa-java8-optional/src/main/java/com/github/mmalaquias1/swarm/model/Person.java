@@ -15,24 +15,24 @@ public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", updatable = false, nullable = false)
+	@Column(updatable = false, nullable = false)
 	private Long id;
 	@Version
-	@Column(name = "version")
-	private int version;
-	@Column(name = "name", nullable = false, length = 225)
+	@Column
+	private Integer version;
+	@Column(nullable = false, length = 225)
 	private String name;
-	@Column(name = "birthday")
+	@Column
 	private LocalDate birthday;
-	@Column(name = "sex", nullable = false, length = 1)
+	@Column(nullable = false, length = 1)
 	private String sex;
-	@Column(name = "weight_actual", nullable = false)
+	@Column(nullable = false)
 	private BigDecimal weightActual;
-	@Column(name = "weight_desired", nullable = false)
+	@Column(nullable = false)
 	private BigDecimal weightDesired;
 	@OneToMany(mappedBy = "person")
 	private List<WeightHistory> weightHistoryList;
-
+	
 	public Person() { }
 
 	public Person(Long id, String name, LocalDate birthday, String sex, BigDecimal weightActual, BigDecimal weightDesired) {
@@ -48,9 +48,7 @@ public class Person implements Serializable {
 		return this.id;
 	}
 
-	public int getVersion() {
-		return this.version;
-	}
+	public Integer getVersion() { return this.version; }
 
 	public String getName() {
 		return name;
