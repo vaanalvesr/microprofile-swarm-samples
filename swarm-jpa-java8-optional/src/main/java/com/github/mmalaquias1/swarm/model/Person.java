@@ -6,8 +6,10 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
+@XmlRootElement
 public class Person implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -31,6 +33,17 @@ public class Person implements Serializable {
 	@OneToMany(mappedBy = "person")
 	private List<WeightHistory> weightHistoryList;
 
+	public Person() { }
+
+	public Person(Long id, String name, LocalDate birthday, String sex, BigDecimal weightActual, BigDecimal weightDesired) {
+		this.id = id;
+		this.name = name;
+		this.birthday = birthday;
+		this.sex = sex;
+		this.weightActual = weightActual;
+		this.weightDesired = weightDesired;
+	}
+
 	public Long getId() {
 		return this.id;
 	}
@@ -39,27 +52,49 @@ public class Person implements Serializable {
 		return this.version;
 	}
 
-	public String getName() { return name; }
+	public String getName() {
+		return name;
+	}
 
-	public void setName(String name) { this.name = name; }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-	public LocalDate getBirthday() { return birthday; }
+	public LocalDate getBirthday() {
+		return birthday;
+	}
 
-	public void setBirthday(LocalDate birthday) { this.birthday = birthday; }
+	public void setBirthday(LocalDate birthday) {
+		this.birthday = birthday;
+	}
 
-	public String getSex() { return sex; }
+	public String getSex() {
+		return sex;
+	}
 
-	public void setSex(String sex) { this.sex = sex; }
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 
-	public BigDecimal getWeightActual() { return weightActual; }
+	public BigDecimal getWeightActual() {
+		return weightActual;
+	}
 
-	public void setWeightActual(BigDecimal weightActual) { this.weightActual = weightActual;}
+	public void setWeightActual(BigDecimal weightActual) {
+		this.weightActual = weightActual;
+	}
 
-	public BigDecimal getWeightDesired() { return weightDesired; }
+	public BigDecimal getWeightDesired() {
+		return weightDesired;
+	}
 
-	public void setWeightDesired(BigDecimal weightDesired) { this.weightDesired = weightDesired; }
+	public void setWeightDesired(BigDecimal weightDesired) {
+		this.weightDesired = weightDesired;
+	}
 
-	public Optional<List<WeightHistory>> getWeightHistoryList() { return Optional.ofNullable(weightHistoryList); }
+	public Optional<List<WeightHistory>> getWeightHistoryList() {
+		return Optional.ofNullable(weightHistoryList);
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -88,14 +123,9 @@ public class Person implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Person{" +
-				"id=" + id +
-				", version=" + version +
-				", name='" + name + '\'' +
-				", birthday=" + birthday +
-				", sex='" + sex + '\'' +
-				", weightActual=" + weightActual +
-				", weightDesired=" + weightDesired +
-				'}';
+		return "Person{" + "id=" + id + ", version=" + version + ", name='"
+				+ name + '\'' + ", birthday=" + birthday + ", sex='" + sex
+				+ '\'' + ", weightActual=" + weightActual + ", weightDesired="
+				+ weightDesired + '}';
 	}
 }
